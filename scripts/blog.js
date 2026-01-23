@@ -245,36 +245,24 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
 
-    // PDF Modal functionality
-    const pdfModal = document.getElementById('pdf-modal');
-    const pdfViewer = document.getElementById('pdf-viewer');
-    const pdfModalClose = document.querySelector('.pdf-modal-close');
+    // PDF Modal functionality - Define functions first
+    let pdfModal, pdfViewer, pdfModalClose;
     
-    // Blog post click handlers - check if it's a PDF link
-    const blogReadMoreLinks = document.querySelectorAll('.read-more, .read-more-btn');
-    blogReadMoreLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const pdfPath = this.getAttribute('data-pdf');
-            
-            if (pdfPath) {
-                // Open PDF in modal
-                openPdfModal(pdfPath);
-            } else {
-                // Regular blog post modal
-                const postTitle = this.closest('.blog-card, .featured-content')?.querySelector('h3, h2')?.textContent;
-                if (postTitle) {
-                    showBlogPostModal(postTitle);
-                }
-            }
-        });
-    });
-
     // Open PDF modal
     function openPdfModal(pdfPath) {
+        if (!pdfModal || !pdfViewer) {
+            pdfModal = document.getElementById('pdf-modal');
+            pdfViewer = document.getElementById('pdf-viewer');
+        }
+        
+        if (!pdfModal || !pdfViewer) {
+            console.error('PDF modal elements not found');
+            return;
+        }
+        
         pdfViewer.src = pdfPath;
         pdfModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        document.body.style.overflow = 'hidden';
         
         // Animate in
         setTimeout(() => {
@@ -284,34 +272,73 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Close PDF modal
     function closePdfModal() {
+        if (!pdfModal) {
+            pdfModal = document.getElementById('pdf-modal');
+            pdfViewer = document.getElementById('pdf-viewer');
+        }
+        
+        if (!pdfModal || !pdfViewer) return;
+        
         pdfModal.style.opacity = '0';
         setTimeout(() => {
             pdfModal.style.display = 'none';
-            pdfViewer.src = ''; // Clear PDF to stop loading
-            document.body.style.overflow = ''; // Restore scrolling
+            pdfViewer.src = '';
+            document.body.style.overflow = '';
         }, 300);
     }
 
-    // Close modal handlers
-    if (pdfModalClose) {
-        pdfModalClose.addEventListener('click', closePdfModal);
-    }
+    // Initialize PDF modal
+    pdfModal = document.getElementById('pdf-modal');
+    pdfViewer = document.getElementById('pdf-viewer');
+    pdfModalClose = document.querySelector('.pdf-modal-close');
+    
+    if (pdfModal && pdfViewer) {
+        // Blog post click handlers - check if it's a PDF link
+        const blogReadMoreLinks = document.querySelectorAll('.read-more, .read-more-btn');
+        blogReadMoreLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const pdfPath = this.getAttribute('data-pdf');
+                
+                if (pdfPath) {
+                    // Open PDF in modal
+                    openPdfModal(pdfPath);
+                } else {
+                    // Regular blog post modal
+                    const postTitle = this.closest('.blog-card, .featured-content')?.querySelector('h3, h2')?.textContent;
+                    if (postTitle) {
+                        showBlogPostModal(postTitle);
+                    }
+                }
+            });
+        });
 
-    // Close modal when clicking outside
-    if (pdfModal) {
+        // Close modal handlers
+        if (pdfModalClose) {
+            pdfModalClose.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                closePdfModal();
+            });
+        }
+
+        // Close modal when clicking outside
         pdfModal.addEventListener('click', function(e) {
             if (e.target === pdfModal) {
                 closePdfModal();
             }
         });
-    }
 
-    // Close modal with Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && pdfModal && pdfModal.style.display === 'flex') {
-            closePdfModal();
-        }
-    });
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && pdfModal && pdfModal.style.display === 'flex') {
+                closePdfModal();
+            }
+        });
+    } else {
+        console.warn('PDF modal elements not found in DOM');
+    }
 
     function showBlogPostModal(title) {
         const modal = document.createElement('div');
