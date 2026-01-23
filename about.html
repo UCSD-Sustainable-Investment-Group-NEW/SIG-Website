@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Sustainable Investment Group</title>
     <link rel="stylesheet" href="styles/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -13,7 +13,10 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="assets/sig-logo-simple.png" alt="SIG Logo" class="logo-img">
+                <div class="logo-top-row">
+                    <span class="logo-sig">SIG</span>
+                    <img src="assets/sig-logo-simple.png" alt="SIG Logo" class="logo-img">
+                </div>
                 <span class="logo-text">Sustainable Investment Group</span>
             </div>
             <div class="nav-menu" id="nav-menu">
@@ -184,86 +187,20 @@
         </div>
     </section>
 
-    <!-- Committees Section -->
-    <section class="committees">
+    <!-- Committees CTA Section -->
+    <section class="committees-cta-section">
         <div class="container">
-            <div class="section-intro">
+            <div class="committees-cta-content">
+                <div class="committees-cta-icon">
+                    <i class="fas fa-users"></i>
+                </div>
                 <h2 class="section-title">Our Committees</h2>
+                <p class="section-subtitle">Learn more about our specialized committees and how they drive sustainable investment research and portfolio management</p>
+                <a href="committees.html" class="btn btn-primary btn-committees">
+                    <i class="fas fa-arrow-right"></i>
+                    Explore Committees
+                </a>
             </div>
-        </div>
-    </section>
-
-    <!-- Equity Research Committee -->
-    <section class="committee-section">
-        <div class="container">
-            <div class="committee-header">
-                <div class="committee-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <h2 class="committee-name">Equity Research</h2>
-            </div>
-            <p class="committee-description">The Equity Research Committee analysts conduct in-depth analysis of publicly traded companies to provide investment recommendations. In a professional setting, this role provides support to fund managers, clients, and investors. In our organization, those in this committee evaluate financial data, modeling future performance, and assessing industry trends. Unlike most finance-focused teams, our ER committee also includes ESG adjustments into our assumption models, like DCFs, to take into account sustainable measures companies take to improve outlook. Through this, our financial calculations are driven not only by industry standard practices and constantly evolving methodologies, but by dimensions that lead to company stability and sustainability.
-                Senior analysts who have refined market knowledge in the Equity Research committee get the opportunity to join the Macroeconomic Analysis team, where they are tasked with educational research responsibilities. The Macroeconomic Analysis team is tasked with creating weekly reports that highlight important economic events, breaking down key data points that are important to financial markets, and crafting meaningful insights on the health of the consumer and the overall state of the economy. By researching these topics in depth, Macro team members work to become subject matter experts to contribute to the improved accuracy of the financial projections that newer analysts create and to cultivate a more financially educated community internally at the Sustainable Investment Group.
-</p>
-        </div>
-    </section>
-
-    <!-- Sustainability Committee -->
-    <section class="committee-section">
-        <div class="container">
-            <div class="committee-header">
-                <div class="committee-icon">
-                    <i class="fas fa-leaf"></i>
-                </div>
-                <h2 class="committee-name">Sustainability</h2>
-            </div>
-            <p class="committee-description">
-The Sustainability Committee contributes to the qualitative evaluation process in stock analysis, focusing on considerations such as ESG (environmental, social, and governance) and other aspects of firms and industries that could influence market volatility and long-term stock potential. Sustainability analysts utilize resources like Refinitiv, Reuters, and Sustainalytics, on top of individual firms’ annual reports and sustainability reports to evaluate the extent to which the company adheres to state and federal ESG regulations and market sentiments, examining the returns in the long run from both the qualitative and quantitative perspectives. The sustainability committee conducts research on the potential ESG considerations, including but not limited to carbon emission, water usage, waste management, data privacy, DEI, risk management, and anti-corruption. The team also studies the policy changes such as the newly signed executive orders to analyze the possible influence on a firm’s profitability in the future. Senior analysts engage in long-term projects of interest, with a team focusing on utilizing ESG metrics in long-run predictions of an asset, standardization of ESG scoring, and development of a more comprehensive risk score (specifically ESG risks and reputational risks) that all could be incorporated into the evaluation of implied share pricing of an asset.
-            </p>
-        </div>
-    </section>
-
-    <!-- Quantitative Analysis Committee -->
-    <section class="committee-section">
-        <div class="container">
-            <div class="committee-header">
-                <div class="committee-icon">
-                    <i class="fas fa-code"></i>
-                </div>
-                <h2 class="committee-name">Quantitative Analysis</h2>
-            </div>
-            <p class="committee-description">
-The Quantitative Analysis Committee analysts use statistical models and programming to support portfolio construction, risk management, and trade execution. This team focuses on developing and refining the quantitative engines that drive SIG investment decisions. In particular, the quantitative committee focuses on analyzing risk factors using regression models, validating our investment thesis using the expected market return, and so forth. 
-Senior analysts work on long-term projects discovering market insights using existing statistical models, while new analysts learn the strategies and tools the industry utilizes. In addition, the quantitative analysts collaborate with our sustainability analysts to bridge quantitative and qualitative data results, including the sustainability lens in our investment process and reporting, transforming raw quantitative outputs—like carbon-intensity scores, ESG factor exposures, and climate-scenario stress tests—into clear, actionable insights that inform both investment decisions and sustainability disclosures. Through embedding sustainability considerations into core quantitative workflows, SIG ensures our quant models capture not just financial risks and returns, but also the evolving environmental and social factors that drive long-term value creation.
-            </p>
-        </div>
-    </section>
-
-    <!-- Communications & Marketing Committee -->
-    <section class="committee-section">
-        <div class="container">
-            <div class="committee-header">
-                <div class="committee-icon">
-                    <i class="fas fa-bullhorn"></i>
-                </div>
-                <h2 class="committee-name">Communications & Marketing</h2>
-            </div>
-            <p class="committee-description">
-The Communications & Marketing committee is in charge of planning SIG’s internal logistics and external events. Internal events include fundraising, socials, and parties while the external events include conferences, collaboration with UCSD Economic department and other organizations. This committee’s overall goal is to improve membership experience in SIG while providing opportunities for networking, developing soft skills, and building community. From creating graphics, promotional materials, and marketing campaigns for fundraisers, competitions, socials, and club collaborations to managing social media, building a unique brand kit and identity, and introducing a marketing analysis core curriculum, this committee’s goal is to improve the membership experience through facilitation of information and opportunities, supporting the communications objective.             </p>
-        </div>
-    </section>
-
-    <!-- Research & Development Committee -->
-    <section class="committee-section">
-        <div class="container">
-            <div class="committee-header">
-                <div class="committee-icon">
-                    <i class="fas fa-lightbulb"></i>
-                </div>
-                <h2 class="committee-name">Research & Development</h2>
-            </div>
-            <p class="committee-description">
-The Research and Development Committee is the team behind long-term innovation at the Sustainable Investment Group. R&D is the committee that turns the club’s big ideas into real projects that help grow both the club and our sustainable investment fund. Working at the intersection of research and execution, R&D’s process starts with studying financial theory, ESG research, and academic models. This helps build a strong foundation for ideas that are then brought to life through application of technical skills like programming, data analysis, and optimization. Combining knowledge from finance, economics, computer science, and environmental studies, this interdisciplinary approach helped develop SIG’s investment philosophy, which is based on the ESG-efficient frontier. This framework shows how investors can balance financial performance with ESG values and plays a key role in how we  think about responsible investing. R&D ensures that every strategy we support is backed by research, technology, and a long-term commitment to positive impact.            </p>
         </div>
     </section>
 

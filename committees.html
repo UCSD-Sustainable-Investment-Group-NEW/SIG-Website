@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meet the Committees - Sustainable Investment Group</title>
     <link rel="stylesheet" href="styles/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -13,7 +13,10 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="assets/sig-logo-simple.png" alt="SIG Logo" class="logo-img">
+                <div class="logo-top-row">
+                    <span class="logo-sig">SIG</span>
+                    <img src="assets/sig-logo-simple.png" alt="SIG Logo" class="logo-img">
+                </div>
                 <span class="logo-text">Sustainable Investment Group</span>
             </div>
             <div class="nav-menu" id="nav-menu">
@@ -49,112 +52,100 @@
                 <p class="section-subtitle">Each committee specializes in different aspects of sustainable investment analysis and portfolio management</p>
             </div>
 
-            <!-- Equity Research Committee -->
-            <div class="committee-card">
-                <div class="committee-header">
-                    <div class="committee-icon">
-                        <i class="fas fa-chart-line"></i>
+            <div class="committees-grid">
+                <!-- Equity Research Committee -->
+                <div class="committee-card committee-left">
+                    <div class="committee-photo">
+                        <div class="photo-full-link" data-lightbox="committee" data-image="">
+                            <div class="photo-full placeholder">
+                                <div class="placeholder-content">
+                                    <i class="fas fa-users"></i>
+                                    <p>Committee Photo</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="committee-info">
+                    <div class="committee-content">
+                        <div class="committee-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
                         <h3 class="committee-name">Equity Research Committee</h3>
                         <p class="committee-description">Conducts in-depth analysis of publicly traded companies, evaluating financial data and industry trends with ESG-adjusted models to provide investment recommendations. <a href="about.html#committees" class="committee-link">Learn more →</a></p>
                     </div>
                 </div>
-                <div class="committee-photo-full">
-                    <div class="photo-full placeholder">
-                        <div class="placeholder-content">
-                            <i class="fas fa-users"></i>
-                            <p>Committee Photo Placeholder</p>
-                            <span>Upload photo of entire Equity Research Committee</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Sustainability Committee -->
-            <div class="committee-card">
-                <div class="committee-header">
-                    <div class="committee-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <div class="committee-info">
+                <!-- Sustainability Committee -->
+                <div class="committee-card committee-right">
+                    <div class="committee-content">
+                        <div class="committee-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
                         <h3 class="committee-name">Sustainability Committee</h3>
                         <p class="committee-description">Focuses on qualitative evaluation of ESG factors—carbon emissions, waste management, DEI, and risk management—that influence long-term stock potential and market volatility. <a href="about.html#committees" class="committee-link">Learn more →</a></p>
                     </div>
-                </div>
-                <div class="committee-photo-full">
-                    <div class="photo-full placeholder">
-                        <div class="placeholder-content">
-                            <i class="fas fa-users"></i>
-                            <p>Committee Photo Placeholder</p>
-                            <span>Upload photo of entire Sustainability Committee</span>
+                    <div class="committee-photo">
+                        <div class="photo-full-link" data-lightbox="committee" data-image="assets/susatin.jpg">
+                            <div class="photo-full">
+                                <img src="assets/susatin.jpg" alt="Sustainability Committee">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Quantitative Analysis Committee -->
-            <div class="committee-card">
-                <div class="committee-header">
-                    <div class="committee-icon">
-                        <i class="fas fa-calculator"></i>
+                <!-- Quantitative Analysis Committee -->
+                <div class="committee-card committee-left">
+                    <div class="committee-photo">
+                        <div class="photo-full-link" data-lightbox="committee" data-image="assets/quant.jpg">
+                            <div class="photo-full">
+                                <img src="assets/quant.jpg" alt="Quantitative Analysis Committee">
+                            </div>
+                        </div>
                     </div>
-                    <div class="committee-info">
+                    <div class="committee-content">
+                        <div class="committee-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
                         <h3 class="committee-name">Quantitative Analysis Committee</h3>
                         <p class="committee-description">Develops statistical models and programming solutions for portfolio construction, risk management, and trade execution. Integrates ESG factors into quantitative frameworks to drive data-driven investment decisions. <a href="about.html#committees" class="committee-link">Learn more →</a></p>
                     </div>
                 </div>
-                <div class="committee-photo-full">
-                    <div class="photo-full placeholder">
-                        <div class="placeholder-content">
-                            <i class="fas fa-users"></i>
-                            <p>Committee Photo Placeholder</p>
-                            <span>Upload photo of entire Quantitative Analysis Committee</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Communications & Marketing Committee -->
-            <div class="committee-card">
-                <div class="committee-header">
-                    <div class="committee-icon">
-                        <i class="fas fa-bullhorn"></i>
-                    </div>
-                    <div class="committee-info">
+                <!-- Communications & Marketing Committee -->
+                <div class="committee-card committee-right">
+                    <div class="committee-content">
+                        <div class="committee-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
                         <h3 class="committee-name">Communications & Marketing</h3>
                         <p class="committee-description">Plans SIG's internal logistics and external events, manages social media, creates promotional materials, and builds community through networking opportunities and marketing campaigns. <a href="about.html#committees" class="committee-link">Learn more →</a></p>
                     </div>
-                </div>
-                <div class="committee-photo-full">
-                    <div class="photo-full placeholder">
-                        <div class="placeholder-content">
-                            <i class="fas fa-users"></i>
-                            <p>Committee Photo Placeholder</p>
-                            <span>Upload photo of entire Communications & Marketing Committee</span>
+                    <div class="committee-photo">
+                        <div class="photo-full-link" data-lightbox="committee" data-image="">
+                            <div class="photo-full placeholder">
+                                <div class="placeholder-content">
+                                    <i class="fas fa-users"></i>
+                                    <p>Committee Photo</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Research & Development Committee -->
-            <div class="committee-card">
-                <div class="committee-header">
-                    <div class="committee-icon">
-                        <i class="fas fa-flask"></i>
+                <!-- Research & Development Committee -->
+                <div class="committee-card committee-left">
+                    <div class="committee-photo">
+                        <div class="photo-full-link" data-lightbox="committee" data-image="assets/rnd.jpg">
+                            <div class="photo-full">
+                                <img src="assets/rnd.jpg" alt="Research & Development Committee">
+                            </div>
+                        </div>
                     </div>
-                    <div class="committee-info">
+                    <div class="committee-content">
+                        <div class="committee-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
                         <h3 class="committee-name">Research & Development (R&D)</h3>
                         <p class="committee-description">Drives long-term innovation by turning ideas into projects, studying financial theory and ESG research, and developing SIG's ESG-efficient frontier investment philosophy through interdisciplinary research and technical implementation. <a href="about.html#committees" class="committee-link">Learn more →</a></p>
-                    </div>
-                </div>
-                <div class="committee-photo-full">
-                    <div class="photo-full placeholder">
-                        <div class="placeholder-content">
-                            <i class="fas fa-users"></i>
-                            <p>Committee Photo Placeholder</p>
-                            <span>Upload photo of entire Research & Development Committee</span>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -200,6 +191,7 @@
     </footer>
 
     <script src="scripts/main.js"></script>
+    <script src="scripts/lightbox.js"></script>
 </body>
 </html>
 
