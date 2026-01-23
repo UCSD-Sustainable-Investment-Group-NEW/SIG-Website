@@ -140,6 +140,12 @@ body {
     border-bottom: 2px solid var(--brown-medium);
 }
 
+@media (max-width: 768px) {
+    .navbar {
+        position: sticky;
+    }
+}
+
 .nav-container {
     display: flex;
     justify-content: space-between;
@@ -254,6 +260,21 @@ body {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    z-index: 1001;
+    padding: var(--spacing-2);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.nav-toggle.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
 }
 
 .bar {
@@ -262,6 +283,7 @@ body {
     background-color: var(--text-primary);
     margin: 3px 0;
     transition: 0.3s;
+    border-radius: 2px;
 }
 
 /* Buttons */
@@ -3688,14 +3710,18 @@ body {
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 70px;
+        top: 0;
         flex-direction: column;
         background-color: var(--white);
         width: 100%;
+        height: 100vh;
         text-align: center;
-        transition: 0.3s;
+        transition: left 0.3s ease;
         box-shadow: var(--shadow-lg);
-        padding: var(--spacing-6) 0;
+        padding: calc(var(--spacing-6) + 80px) 0 var(--spacing-6) 0;
+        z-index: 999;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .nav-menu.active {
@@ -3704,6 +3730,33 @@ body {
 
     .nav-toggle {
         display: flex;
+        position: relative;
+        z-index: 1001;
+        min-width: 44px;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .nav-link {
+        display: flex;
+        padding: var(--spacing-4) var(--spacing-6);
+        font-size: var(--font-size-lg);
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        -webkit-tap-highlight-color: rgba(74, 155, 60, 0.2);
+        width: 100%;
+    }
+    
+    .nav-link.active::after {
+        display: none;
+    }
+    
+    .nav-link.active {
+        background-color: rgba(74, 155, 60, 0.1);
+        color: var(--instagram-emerald);
+        font-weight: 600;
     }
     
     /* Enhanced mobile hero section */
