@@ -4501,3 +4501,171 @@ body {
         padding: var(--spacing-4);
     }
 }
+
+/* Sponsorship Page Styles */
+.current-sponsors {
+    padding: var(--spacing-12) 0;
+    background-color: var(--beige-light);
+}
+
+.sponsors-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.sponsor-list-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-6);
+    background: var(--beige-warm);
+    border: 2px solid var(--brown-medium);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-6);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-medium);
+}
+
+.sponsor-list-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--brown-darker);
+}
+
+.sponsor-logo-placeholder {
+    flex: 0 0 100px;
+    width: 100px;
+    height: 100px;
+    background: var(--gradient-instagram-green);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: var(--font-size-3xl);
+    box-shadow: var(--shadow-md);
+}
+
+.sponsor-info {
+    flex: 1;
+}
+
+.sponsor-info h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-2);
+}
+
+.sponsor-tier-label {
+    display: inline-block;
+    background: var(--gradient-instagram-green);
+    color: var(--white);
+    padding: var(--spacing-1) var(--spacing-3);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: var(--spacing-3);
+}
+
+.sponsor-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.why-sponsor {
+    padding: var(--spacing-12) 0;
+    background-color: var(--beige-warm);
+}
+
+.sponsorship-contact {
+    padding: var(--spacing-12) 0;
+    background-color: var(--beige-light);
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-6);
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    background: var(--beige-warm);
+    border: 2px solid var(--brown-medium);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-8);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-medium);
+    min-width: 300px;
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--brown-darker);
+}
+
+.contact-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-instagram-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-4);
+    color: var(--white);
+    font-size: var(--font-size-2xl);
+    box-shadow: var(--shadow-md);
+}
+
+.contact-card h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-4);
+}
+
+.contact-card p {
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.email-link {
+    color: var(--instagram-emerald);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition-medium);
+}
+
+.email-link:hover {
+    color: var(--primary-green-dark);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .sponsor-list-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .sponsor-logo-placeholder {
+        flex: 0 0 80px;
+        width: 80px;
+        height: 80px;
+        font-size: var(--font-size-2xl);
+    }
+
+    .contact-card {
+        min-width: 100%;
+    }
+}
