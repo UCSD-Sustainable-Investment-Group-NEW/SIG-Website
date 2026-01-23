@@ -244,13 +244,11 @@
             <!-- Instagram Event Photos -->
             <div class="instagram-events-section">
                 <div class="section-intro">
-                    <h2 class="section-title">Events in Photos</h2>
-                    <p class="section-subtitle">Follow our journey through Instagram</p>
+                    <h2 class="section-title" style="font-weight: bold;">Follow our journey through Instagram</h2>
                 </div>
-                <div id="instagram-feed" class="instagram-feed-container">
-                    <div class="instagram-grid">
-                        <!-- Instagram feed will be populated by JavaScript -->
-                    </div>
+                <div class="instagram-feed-container">
+                    <!-- Juicer.io Instagram Feed Embed (iframe) -->
+                    <iframe src="https://www.juicer.io/api/feeds/sigatucsd/iframe" frameborder="0" width="1000" height="1000" style="display:block;margin:0 auto;" id="juicer-iframe"></iframe>
                     <a href="https://www.instagram.com/sigatucsd/" target="_blank" class="btn btn-primary btn-instagram-cta">
                         <i class="fab fa-instagram"></i> Follow @sigatucsd
                     </a>
@@ -297,7 +295,6 @@
     </footer>
 
     <script src="scripts/main.js"></script>
-    <script src="scripts/instagram-feed.js"></script>
     <script>
         // Event filter functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -322,6 +319,14 @@
                     });
                 });
             });
+
+            // Force refresh Juicer iframe to bypass cache
+            const juicerIframe = document.getElementById('juicer-iframe');
+            if (juicerIframe) {
+                // Add cache-busting parameter to force reload
+                const baseUrl = juicerIframe.src.split('?')[0];
+                juicerIframe.src = baseUrl + '?t=' + Date.now();
+            }
         });
     </script>
 </body>
