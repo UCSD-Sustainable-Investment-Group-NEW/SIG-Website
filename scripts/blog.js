@@ -272,8 +272,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Open PDF modal
     function openPdfModal(pdfPath) {
+        if (!pdfModal || !pdfViewer) {
+            console.error('PDF modal elements not found');
+            return;
+        }
+        
         pdfViewer.src = pdfPath;
         pdfModal.style.display = 'flex';
+        pdfModal.classList.add('active');
         document.body.style.overflow = 'hidden'; // Prevent background scrolling
         
         // Animate in
@@ -284,10 +290,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Close PDF modal
     function closePdfModal() {
+        if (!pdfModal) return;
+        
         pdfModal.style.opacity = '0';
+        pdfModal.classList.remove('active');
         setTimeout(() => {
             pdfModal.style.display = 'none';
-            pdfViewer.src = ''; // Clear PDF to stop loading
+            if (pdfViewer) {
+                pdfViewer.src = ''; // Clear PDF to stop loading
+            }
             document.body.style.overflow = ''; // Restore scrolling
         }, 300);
     }
