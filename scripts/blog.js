@@ -1,6 +1,113 @@
 // Blog page specific JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Generate PDF thumbnails - try PDF.js first, fallback to embed
+    function generatePdfThumbnails() {
+        const pdfThumbnails = document.querySelectorAll('.pdf-thumbnail');
+        
+        pdfThumbnails.forEach((container, index) => {
+            const pdfPath = container.getAttribute('data-pdf');
+            if (!pdfPath) return;
+
+            // Try PDF.js if available
+            if (typeof pdfjsLib !== 'undefined') {
+                generatePdfThumbnailWithPdfJs(container, pdfPath, index);
+            } else {
+                // Fallback to embed tag
+                generatePdfThumbnailWithEmbed(container, pdfPath);
+            }
+        });
+    }
+
+    function generatePdfThumbnailWithPdfJs(container, pdfPath, index) {
+        // Configure PDF.js worker
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        
+        const containerWidth = container.offsetWidth || 400;
+        const containerHeight = 200;
+        
+        // Create canvas element
+        const canvas = document.createElement('canvas');
+        canvas.style.width = '100%';
+        canvas.style.height = '200px';
+        canvas.style.display = 'block';
+        canvas.style.backgroundColor = '#ffffff';
+        
+        // Set canvas internal resolution
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = containerWidth * dpr;
+        canvas.height = containerHeight * dpr;
+
+        const context = canvas.getContext('2d');
+        context.scale(dpr, dpr);
+
+        // Fill with white background
+        context.fillStyle = '#ffffff';
+        context.fillRect(0, 0, containerWidth, containerHeight);
+
+        container.appendChild(canvas);
+
+        // Load and render PDF
+        pdfjsLib.getDocument(pdfPath).promise
+            .then(pdf => {
+                return pdf.getPage(1);
+            })
+            .then(page => {
+                // Calculate scale to fit
+                const viewport = page.getViewport({ scale: 1.0 });
+                const scale = Math.min(
+                    containerWidth / viewport.width,
+                    containerHeight / viewport.height
+                ) * 0.95;
+                const scaledViewport = page.getViewport({ scale: scale });
+
+                // Clear and redraw white background
+                context.fillStyle = '#ffffff';
+                context.fillRect(0, 0, containerWidth, containerHeight);
+
+                // Calculate centering
+                const xOffset = (containerWidth - scaledViewport.width) / 2;
+                const yOffset = (containerHeight - scaledViewport.height) / 2;
+
+                // Render PDF page
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: scaledViewport
+                };
+
+                context.save();
+                context.translate(xOffset, yOffset);
+                
+                return page.render(renderContext).promise.then(() => {
+                    context.restore();
+                });
+            })
+            .catch(error => {
+                console.error('PDF.js failed for', pdfPath, error);
+                // Remove canvas and try embed fallback
+                if (canvas.parentNode) {
+                    canvas.parentNode.removeChild(canvas);
+                }
+                generatePdfThumbnailWithEmbed(container, pdfPath);
+            });
+    }
+
+    function generatePdfThumbnailWithEmbed(container, pdfPath) {
+        // Use embed tag as fallback
+        const embed = document.createElement('embed');
+        embed.src = pdfPath + '#page=1&toolbar=0&navpanes=0&scrollbar=0&zoom=page-fit';
+        embed.type = 'application/pdf';
+        embed.style.width = '100%';
+        embed.style.height = '200px';
+        embed.style.display = 'block';
+        embed.style.backgroundColor = '#ffffff';
+        
+        container.appendChild(embed);
+    }
+
+    // Initialize after a short delay
+    setTimeout(generatePdfThumbnails, 300);
+
     // Blog post filtering functionality
     const filterButtons = document.querySelectorAll('.blog-categories .filter-btn');
     const blogCards = document.querySelectorAll('.blog-card');
