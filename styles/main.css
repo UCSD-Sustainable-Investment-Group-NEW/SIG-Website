@@ -254,6 +254,12 @@ body {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(58, 123, 47, 0.2);
 }
 
 .bar {
@@ -3603,6 +3609,9 @@ body {
 }
 
 .load-more-btn {
+    min-height: 44px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(58, 123, 47, 0.2);
     padding: var(--spacing-3) var(--spacing-8);
 }
 
@@ -3636,6 +3645,30 @@ body {
     gap: var(--spacing-3);
 }
 
+@media (max-width: 768px) {
+    .newsletter-form {
+        flex-direction: column;
+        max-width: 100%;
+        padding: 0 var(--spacing-4);
+    }
+    
+    .newsletter-input {
+        min-height: 44px;
+        font-size: var(--font-size-base);
+    }
+    
+    .newsletter-btn {
+        width: 100%;
+        padding: var(--spacing-4) var(--spacing-6);
+    }
+    
+    .load-more-btn {
+        width: 100%;
+        max-width: 300px;
+        padding: var(--spacing-4) var(--spacing-6);
+    }
+}
+
 .newsletter-input {
     flex: 1;
     padding: var(--spacing-3);
@@ -3645,6 +3678,9 @@ body {
 }
 
 .newsletter-btn {
+    min-height: 44px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(58, 123, 47, 0.2);
     background-color: var(--white);
     color: var(--primary-green);
     border: none;
@@ -3803,6 +3839,10 @@ body {
 
     .nav-toggle {
         display: flex;
+        min-width: 44px;
+        min-height: 44px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(58, 123, 47, 0.2);
     }
     
     /* Enhanced mobile hero section */
@@ -3834,8 +3874,66 @@ body {
     .btn {
         width: 100%;
         max-width: 280px;
+        padding: var(--spacing-5) var(--spacing-6);
+        font-size: var(--font-size-base);
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(58, 123, 47, 0.2);
+    }
+    
+    /* Ensure all button types are touch-friendly on mobile */
+    .btn-primary,
+    .btn-secondary,
+    .btn-social,
+    .btn-community,
+    .btn-sponsorship,
+    .btn-hero,
+    .btn-about,
+    .btn-committees,
+    .btn-instagram-cta {
+        min-height: 44px;
         padding: var(--spacing-4) var(--spacing-6);
-        font-size: var(--font-size-sm);
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(58, 123, 47, 0.2);
+    }
+    
+    /* Filter buttons mobile optimization */
+    .filter-btn {
+        min-height: 44px;
+        padding: var(--spacing-3) var(--spacing-5);
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(58, 123, 47, 0.2);
+    }
+    
+    /* Navigation links mobile optimization */
+    .nav-link {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        padding: var(--spacing-2) var(--spacing-3);
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(58, 123, 47, 0.2);
+    }
+    
+    /* PDF modal close button mobile */
+    .pdf-modal-close {
+        min-width: 44px;
+        min-height: 44px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(58, 123, 47, 0.2);
+    }
+    
+    /* Email link mobile */
+    .email-link {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        padding: var(--spacing-2) var(--spacing-3);
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(58, 123, 47, 0.2);
     }
     
     /* Enhanced mobile stats */
@@ -4037,6 +4135,13 @@ body {
     .calendar-buttons {
         flex-direction: column;
         align-items: center;
+        gap: var(--spacing-3);
+    }
+    
+    .calendar-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+        min-height: 44px;
     }
 }
 
@@ -4080,6 +4185,58 @@ body {
     .members-grid,
     .alumni-grid {
         grid-template-columns: 1fr;
+    }
+    
+    /* Ensure all buttons have proper touch targets on small phones */
+    .btn,
+    .btn-primary,
+    .btn-secondary,
+    .btn-social,
+    .btn-community,
+    .btn-sponsorship,
+    .btn-hero,
+    .btn-about,
+    .btn-committees,
+    .btn-instagram-cta,
+    .filter-btn,
+    .read-more,
+    .read-more-btn {
+        min-height: 44px;
+        padding: var(--spacing-4) var(--spacing-5);
+        font-size: var(--font-size-base);
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(58, 123, 47, 0.2);
+    }
+    
+    /* Social links mobile */
+    .social-link {
+        min-width: 44px;
+        min-height: 44px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(58, 123, 47, 0.2);
+    }
+    
+    /* Back to top button mobile */
+    .back-to-top {
+        min-width: 50px;
+        min-height: 50px;
+        bottom: 15px;
+        right: 15px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(58, 123, 47, 0.2);
+    }
+    
+    /* Floating action button mobile */
+    .floating-action-button {
+        bottom: 60px;
+        right: 15px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(58, 123, 47, 0.2);
+    }
+    
+    .fab-link {
+        min-height: 44px;
+        padding: var(--spacing-4) var(--spacing-5);
     }
 }
 
@@ -4326,6 +4483,39 @@ body {
     .btn-sponsorship {
         padding: var(--spacing-4) var(--spacing-8);
         font-size: var(--font-size-base);
+        min-height: 44px;
+    }
+    
+    /* Mobile button touch targets - ensure all buttons are easily clickable */
+    .btn-social {
+        min-height: 44px;
+        padding: var(--spacing-4) var(--spacing-6);
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .btn-community {
+        min-height: 44px;
+        padding: var(--spacing-4) var(--spacing-6);
+    }
+    
+    .read-more,
+    .read-more-btn {
+        min-height: 44px;
+        padding: var(--spacing-3) var(--spacing-5);
+        display: inline-flex;
+        align-items: center;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(58, 123, 47, 0.2);
+    }
+    
+    /* Contact card buttons */
+    .contact-card-centered .email-link {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--spacing-3) var(--spacing-5);
     }
 }
 
@@ -4457,8 +4647,10 @@ body {
     position: absolute;
     top: var(--spacing-4);
     right: var(--spacing-4);
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
     background-color: var(--white);
     border: none;
     border-radius: 50%;
@@ -4471,6 +4663,8 @@ body {
     z-index: 10001;
     transition: all var(--transition-medium);
     box-shadow: var(--shadow-md);
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(58, 123, 47, 0.2);
 }
 
 .pdf-modal-close:hover {
@@ -4494,11 +4688,15 @@ body {
     }
 
     .pdf-modal-close {
-        width: 35px;
-        height: 35px;
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
         font-size: var(--font-size-xl);
         top: var(--spacing-2);
         right: var(--spacing-2);
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(58, 123, 47, 0.2);
     }
 }
 
