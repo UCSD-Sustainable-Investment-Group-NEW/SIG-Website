@@ -1248,18 +1248,18 @@ body {
     box-shadow: 0 8px 24px rgba(74, 61, 47, 0.4);
 }
 
-.committee-name {
+.committee-card .committee-name {
     font-size: var(--font-size-xl);
     font-weight: 700;
-    color: var(--white);
+    color: var(--white) !important;
     margin: 0;
     letter-spacing: -0.02em;
     line-height: 1.3;
 }
 
-.committee-description {
+.committee-card .committee-description {
     font-size: var(--font-size-base);
-    color: var(--beige-light);
+    color: var(--beige-light) !important;
     line-height: 1.6;
     margin: 0;
 }
@@ -1511,16 +1511,16 @@ body {
     }
 }
 
-.committee-link {
-    color: var(--white);
+.committee-card .committee-link {
+    color: var(--white) !important;
     text-decoration: underline;
     font-weight: 600;
     margin-left: var(--spacing-2);
     transition: color var(--transition-medium);
 }
 
-.committee-link:hover {
-    color: var(--beige-light);
+.committee-card .committee-link:hover {
+    color: var(--beige-light) !important;
     text-decoration: underline;
 }
 
