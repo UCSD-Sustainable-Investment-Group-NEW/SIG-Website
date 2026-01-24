@@ -1195,7 +1195,7 @@ body {
 }
 
 .committee-card {
-    background: var(--beige-warm);
+    background: var(--brown-light);
     border: 2px solid var(--brown-medium);
     border-radius: var(--radius-xl);
     padding: var(--spacing-6);
@@ -1251,7 +1251,7 @@ body {
 .committee-name {
     font-size: var(--font-size-xl);
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--white);
     margin: 0;
     letter-spacing: -0.02em;
     line-height: 1.3;
@@ -1259,7 +1259,7 @@ body {
 
 .committee-description {
     font-size: var(--font-size-base);
-    color: var(--text-secondary);
+    color: var(--beige-light);
     line-height: 1.6;
     margin: 0;
 }
@@ -1512,15 +1512,15 @@ body {
 }
 
 .committee-link {
-    color: var(--brown-medium);
-    text-decoration: none;
+    color: var(--white);
+    text-decoration: underline;
     font-weight: 600;
     margin-left: var(--spacing-2);
     transition: color var(--transition-medium);
 }
 
 .committee-link:hover {
-    color: var(--brown-darker);
+    color: var(--beige-light);
     text-decoration: underline;
 }
 
@@ -1567,13 +1567,13 @@ body {
 
 .events-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-4);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-2);
     margin-bottom: var(--spacing-10);
 }
 
 .event-card {
-    background: var(--beige-warm);
+    background: var(--brown-light);
     border: 2px solid var(--brown-medium);
     border-radius: var(--radius-md);
     overflow: hidden;
@@ -1596,6 +1596,7 @@ body {
     overflow: hidden;
     position: relative;
     flex-shrink: 0;
+    max-height: 140px;
 }
 
 .event-image img {
@@ -1605,7 +1606,7 @@ body {
 }
 
 .event-content {
-    padding: var(--spacing-3);
+    padding: var(--spacing-1);
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -1626,19 +1627,19 @@ body {
 }
 
 .event-title {
-    font-size: var(--font-size-base);
+    font-size: 0.75rem;
     font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: var(--spacing-2);
+    color: var(--white);
+    margin-bottom: var(--spacing-1);
     letter-spacing: -0.02em;
-    line-height: 1.3;
+    line-height: 1.2;
 }
 
 .event-description {
-    font-size: var(--font-size-xs);
-    color: var(--text-secondary);
-    line-height: 1.4;
-    margin-bottom: var(--spacing-2);
+    font-size: 0.65rem;
+    color: var(--beige-light);
+    line-height: 1.3;
+    margin-bottom: var(--spacing-1);
     display: -webkit-box;
     -webkit-line-clamp: 2;
     line-clamp: 2;
@@ -1649,9 +1650,9 @@ body {
 .event-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--spacing-3);
-    font-size: var(--font-size-xs);
-    color: var(--text-secondary);
+    gap: var(--spacing-2);
+    font-size: 0.6rem;
+    color: var(--beige-light);
     margin-top: auto;
 }
 
@@ -1666,50 +1667,77 @@ body {
 }
 
 .instagram-events-section {
-    margin-top: var(--spacing-20);
-    padding-top: var(--spacing-20);
+    margin-top: var(--spacing-8);
+    padding-top: var(--spacing-6);
     border-top: 1px solid var(--gray-200);
 }
 
-.instagram-feed-container {
-    margin-top: var(--spacing-12);
-}
 
 .instagram-embed-container {
     margin-top: var(--spacing-12);
 }
 
 .instagram-feed-container {
-    margin-top: var(--spacing-8);
-    padding: var(--spacing-6);
+    margin-top: var(--spacing-2);
+    padding: 0;
     background: var(--beige-light);
-    border-radius: var(--radius-lg);
-    border: 2px solid var(--brown-medium);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--brown-medium);
     box-shadow: var(--shadow-md);
     overflow: hidden;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .instagram-feed-container iframe {
     width: 100% !important;
-    max-width: 800px !important;
-    height: 800px !important;
+    max-width: 900px !important;
+    height: 600px !important;
     border: none !important;
-    border-radius: var(--radius-md);
+    border-radius: 0;
     display: block;
     margin: 0 auto;
 }
 
 @media (max-width: 768px) {
+    .instagram-feed-container {
+        max-width: 100%;
+    }
     .instagram-feed-container iframe {
         max-width: 100% !important;
-        height: 700px !important;
+        height: 500px !important;
     }
 }
 
 @media (max-width: 480px) {
     .instagram-feed-container iframe {
-        height: 600px !important;
+        max-width: 100% !important;
+        height: 400px !important;
     }
+}
+
+/* Instagram Events Section Title Styling */
+.instagram-events-section .section-title {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-3);
+    margin-bottom: var(--spacing-4);
+}
+
+.instagram-events-section .section-title i {
+    background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
 }
 
 /* Juicer.io Feed Styling */
@@ -1810,18 +1838,18 @@ body {
 
 /* Event Highlights Section */
 .event-highlights-section {
-    padding: var(--spacing-8) 0;
+    padding: var(--spacing-6) 0;
     background: linear-gradient(to bottom, var(--beige-light) 0%, var(--beige-warm) 100%);
 }
 
 .event-highlight {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-4);
+    gap: var(--spacing-2);
     align-items: center;
-    margin-bottom: var(--spacing-6);
-    background: var(--beige-warm);
-    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-3);
+    background: var(--brown-light);
+    border-radius: var(--radius-md);
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(107, 93, 74, 0.15);
     border: 2px solid var(--brown-medium);
@@ -1851,7 +1879,7 @@ body {
 .highlight-image {
     width: 100%;
     height: 100%;
-    min-height: 200px;
+    min-height: 120px;
     position: relative;
     overflow: hidden;
     background: var(--gray-100);
@@ -1888,7 +1916,7 @@ body {
 }
 
 .highlight-content {
-    padding: var(--spacing-5);
+    padding: var(--spacing-3);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1910,27 +1938,27 @@ body {
 }
 
 .highlight-title {
-    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-size: clamp(1rem, 2vw, 1.3rem);
     font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: var(--spacing-3);
+    color: var(--white);
+    margin-bottom: var(--spacing-1);
     letter-spacing: -0.02em;
-    line-height: 1.3;
+    line-height: 1.2;
 }
 
 .highlight-description {
-    font-size: var(--font-size-base);
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: var(--spacing-4);
+    font-size: 0.8rem;
+    color: var(--beige-light);
+    line-height: 1.4;
+    margin-bottom: var(--spacing-2);
 }
 
 .highlight-meta {
     display: flex;
-    gap: var(--spacing-6);
+    gap: var(--spacing-3);
     flex-wrap: wrap;
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
+    font-size: 0.7rem;
+    color: var(--beige-light);
 }
 
 .highlight-meta span {
@@ -1940,7 +1968,7 @@ body {
 }
 
 .highlight-meta i {
-    color: var(--instagram-emerald);
+    color: var(--beige-light);
 }
 
 @media (max-width: 968px) {
@@ -1956,7 +1984,7 @@ body {
     }
 
     .highlight-image {
-        min-height: 180px;
+        min-height: 100px;
     }
 
     .highlight-content {
@@ -2214,7 +2242,7 @@ body {
 }
 
 .event-card {
-    background-color: var(--white);
+    background-color: var(--brown-light);
     padding: var(--spacing-6);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
@@ -2244,7 +2272,7 @@ body {
     display: block;
     font-size: var(--font-size-2xl);
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--white);
     line-height: 1;
 }
 
@@ -2252,11 +2280,11 @@ body {
     font-size: var(--font-size-lg);
     font-weight: 600;
     margin-bottom: var(--spacing-2);
-    color: var(--text-primary);
+    color: var(--white);
 }
 
 .event-content p {
-    color: var(--text-secondary);
+    color: var(--beige-light);
     margin-bottom: var(--spacing-2);
     font-size: var(--font-size-sm);
 }
@@ -3089,7 +3117,7 @@ body {
 }
 
 .event-card-large {
-    background-color: var(--white);
+    background-color: var(--brown-light);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     overflow: hidden;
@@ -3149,25 +3177,25 @@ body {
     display: block;
     font-size: var(--font-size-3xl);
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--white);
     line-height: 1;
 }
 
 .event-date-large .year {
     display: block;
     font-size: var(--font-size-sm);
-    color: var(--text-secondary);
+    color: var(--beige-light);
 }
 
 .event-info h3 {
     font-size: var(--font-size-xl);
     font-weight: 600;
     margin-bottom: var(--spacing-3);
-    color: var(--text-primary);
+    color: var(--white);
 }
 
 .event-description {
-    color: var(--text-secondary);
+    color: var(--beige-light);
     margin-bottom: var(--spacing-4);
     line-height: 1.6;
 }
@@ -3183,7 +3211,7 @@ body {
     align-items: center;
     gap: var(--spacing-2);
     font-size: var(--font-size-sm);
-    color: var(--text-secondary);
+    color: var(--beige-light);
 }
 
 .event-meta i {
