@@ -1232,6 +1232,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-4);
+    color: var(--white);
 }
 
 .committee-icon {
@@ -1262,6 +1263,10 @@ body {
     color: var(--beige-light) !important;
     line-height: 1.6;
     margin: 0;
+}
+
+.committee-card .committee-description p {
+    color: var(--beige-light) !important;
 }
 
 /* Committee Photo Styles */
