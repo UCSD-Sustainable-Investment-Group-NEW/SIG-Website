@@ -2242,7 +2242,7 @@ body {
 }
 
 .event-card {
-    background-color: var(--brown-light);
+    background: var(--brown-light);
     padding: var(--spacing-6);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
