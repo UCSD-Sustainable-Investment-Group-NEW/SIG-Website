@@ -2576,6 +2576,35 @@ body {
     max-width: 100%;
 }
 
+/* Sponsorship CTA Section */
+.sponsorship-cta-section {
+    padding: var(--spacing-12) 0;
+    background: var(--beige-light);
+    text-align: center;
+}
+
+.sponsorship-cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.sponsorship-cta-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-6);
+    line-height: 1.3;
+    text-align: center;
+}
+
+.btn-sponsorship {
+    margin-top: var(--spacing-2);
+}
+
 .application-steps {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
