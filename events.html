@@ -22,7 +22,6 @@
             <div class="nav-menu" id="nav-menu">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="about.html" class="nav-link">About</a>
-                <a href="services.html" class="nav-link">Services</a>
                 <a href="committees.html" class="nav-link">Committees</a>
                 <a href="events.html" class="nav-link active">Events</a>
                 <a href="blog.html" class="nav-link">Blog</a>
@@ -50,16 +49,13 @@
             <div class="section-intro">
                 <span class="section-label">Core Events</span>
                 <h2 class="section-title">Event Highlights</h2>
-                <p class="section-subtitle">Our events showcase SIG's expertise and create meaningful community connections.</p>
+                <p class="section-subtitle">Our signature quarterly events showcase SIG's expertise and community</p>
             </div>
 
             <!-- Stock Pitch Competition -->
             <div class="event-highlight highlight-left">
                 <div class="highlight-image">
-                    <div class="image-placeholder">
-                        <i class="fas fa-image"></i>
-                        <p>Photo Placeholder</p>
-                    </div>
+                    <img src="assets/stockpitch.jpg" alt="Stock Pitch Competition">
                 </div>
                 <div class="highlight-content">
                     <span class="highlight-badge">Core Event</span>
@@ -84,10 +80,7 @@
                     </div>
                 </div>
                 <div class="highlight-image">
-                    <div class="image-placeholder">
-                        <i class="fas fa-image"></i>
-                        <p>Photo Placeholder</p>
-                    </div>
+                    <img src="assets/quantathon.JPG" alt="Quantathon">
                 </div>
             </div>
 
@@ -115,7 +108,7 @@
                 <div class="highlight-content">
                     <span class="highlight-badge">External Event</span>
                     <h3 class="highlight-title">Data Fest</h3>
-                    <p class="highlight-description">SIG was the first organization at UCSD to send members to the annual UCLA Datafest in Los Angeles. This prestigious event brings together teams from universities across the region to compete in data analysis challenges. SIG members participate in this intensive competition, applying their quantitative skills to real-world datasets and collaborating with peers from other institutions, further strengthening our commitment to data-driven investment analysis.</p>
+                    <p class="highlight-description">SIG was the first UCSD organization to send members to the annual UCLA Datafest in Los Angeles. This prestigious event brings together teams from universities across the region to compete in data analysis challenges. SIG members participate in this intensive competition, applying their quantitative skills to real-world datasets and collaborating with peers from other institutions, further strengthening our commitment to data-driven investment analysis.</p>
                     <div class="highlight-meta">
                         <span class="highlight-frequency"><i class="fas fa-calendar-check"></i> Annual</span>
                         <span class="highlight-format"><i class="fas fa-trophy"></i> Competition</span>
@@ -245,37 +238,15 @@
             <!-- Instagram Event Photos -->
             <div class="instagram-events-section">
                 <div class="section-intro">
-                    <h2 class="section-title">Events in Photos</h2>
-                    <p class="section-subtitle">Follow our journey through Instagram</p>
+                    <h2 class="section-title"><i class="fab fa-instagram"></i> Follow our journey through Instagram</h2>
                 </div>
-                <div id="instagram-feed" class="instagram-feed-container">
-                    <div class="instagram-grid">
-                        <!-- Instagram feed will be populated by JavaScript -->
-                    </div>
+                <div class="instagram-feed-container">
+                    <!-- Juicer.io Instagram Feed Embed (iframe) -->
+                    <iframe src="https://www.juicer.io/api/feeds/sigatucsd/iframe" frameborder="0" width="900" height="600" style="display:block;margin:0 auto;" id="juicer-iframe"></iframe>
                     <a href="https://www.instagram.com/sigatucsd/" target="_blank" class="btn btn-primary btn-instagram-cta">
                         <i class="fab fa-instagram"></i> Follow @sigatucsd
                     </a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Media Follow Section -->
-    <section class="social-follow">
-        <div class="container">
-            <div class="section-intro">
-                <h2 class="section-title">Connect With Us</h2>
-                <p class="section-subtitle">Stay updated with our latest news, events, and insights</p>
-            </div>
-            <div class="social-buttons">
-                <a href="https://www.instagram.com/sigatucsd/" class="btn btn-social btn-instagram" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                    Follow on Instagram
-                </a>
-                <a href="https://www.linkedin.com/company/ucsdsig/" class="btn btn-social btn-linkedin" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                    Connect on LinkedIn
-                </a>
             </div>
         </div>
     </section>
@@ -296,19 +267,18 @@
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
-                    <div class="footer-links">
-                        <a href="index.html">Home</a>
-                        <a href="about.html">About</a>
-                        <a href="services.html">Services</a>
-                        <a href="committees.html">Committees</a>
-                        <a href="events.html">Events</a>
-                        <a href="blog.html">Blog</a>
-                        <a href="sponsorship.html">Sponsorship</a>
-                    </div>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="committees.html">Committees</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <p>ucsdsustainableinvestment@gmail.com</p>
+                    <p>@sigatucsd</p>
                     <p>University of California, San Diego</p>
                 </div>
             </div>
@@ -319,7 +289,6 @@
     </footer>
 
     <script src="scripts/main.js"></script>
-    <script src="scripts/instagram-feed.js"></script>
     <script>
         // Event filter functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -344,6 +313,14 @@
                     });
                 });
             });
+
+            // Force refresh Juicer iframe to bypass cache
+            const juicerIframe = document.getElementById('juicer-iframe');
+            if (juicerIframe) {
+                // Add cache-busting parameter to force reload
+                const baseUrl = juicerIframe.src.split('?')[0];
+                juicerIframe.src = baseUrl + '?t=' + Date.now();
+            }
         });
     </script>
 </body>
