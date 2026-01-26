@@ -18,29 +18,82 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.getElementById('nav-menu');
 
     if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function() {
+        // Create backdrop overlay for mobile menu
+        const backdrop = document.createElement('div');
+        backdrop.className = 'mobile-menu-backdrop';
+        backdrop.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        `;
+        document.body.appendChild(backdrop);
+        
+        function toggleMenu() {
+            const isActive = navMenu.classList.contains('active');
             navMenu.classList.toggle('active');
-            
-            // Animate hamburger menu
             navToggle.classList.toggle('active');
+            
+            // Show/hide backdrop
+            if (!isActive) {
+                backdrop.style.opacity = '1';
+                backdrop.style.visibility = 'visible';
+                document.body.style.overflow = 'hidden';
+            } else {
+                backdrop.style.opacity = '0';
+                backdrop.style.visibility = 'hidden';
+                document.body.style.overflow = '';
+            }
+        }
+        
+        function closeMenu() {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+            backdrop.style.opacity = '0';
+            backdrop.style.visibility = 'hidden';
+            document.body.style.overflow = '';
+        }
+
+        // Handle click and touch events on toggle
+        navToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMenu();
+        });
+        
+        navToggle.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMenu();
+        });
+
+        // Close menu when clicking backdrop
+        backdrop.addEventListener('click', closeMenu);
+        backdrop.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            closeMenu();
         });
 
         // Close mobile menu when clicking on a link
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
+                closeMenu();
             });
         });
 
-        // Close mobile menu when clicking outside
+        // Close mobile menu when clicking outside (fallback)
         document.addEventListener('click', function(event) {
             const isClickInsideNav = navMenu.contains(event.target) || navToggle.contains(event.target);
-            if (!isClickInsideNav && navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-            });
+            if (!isClickInsideNav && navMenu.classList.contains('active') && !backdrop.contains(event.target)) {
+                closeMenu();
+            }
         });
     }
 
@@ -385,7 +438,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize premium effects
     initParticleEffect();
-    initCursorEffect();
     
     // Initialize enhanced navigation features
     initFloatingActionButton();
@@ -509,69 +561,6 @@ function initParticleEffect() {
         resizeCanvas();
         initParticles();
     });
-}
-
-// Premium cursor effect
-function initCursorEffect() {
-    if (window.innerWidth < 768) return; // Skip on mobile
-    
-    const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
-    cursor.style.cssText = `
-        position: fixed;
-        width: 20px;
-        height: 20px;
-        background: radial-gradient(circle, rgba(74, 155, 60, 0.8) 0%, rgba(74, 155, 60, 0.2) 70%, transparent 100%);
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 9999;
-        mix-blend-mode: difference;
-        transition: transform 0.1s ease;
-        transform: translate(-50%, -50%) scale(0);
-    `;
-    document.body.appendChild(cursor);
-    
-    let mouseX = 0, mouseY = 0;
-    let cursorX = 0, cursorY = 0;
-    
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-    
-    function updateCursor() {
-        cursorX += (mouseX - cursorX) * 0.1;
-        cursorY += (mouseY - cursorY) * 0.1;
-        
-        cursor.style.left = cursorX + 'px';
-        cursor.style.top = cursorY + 'px';
-        
-        requestAnimationFrame(updateCursor);
-    }
-    
-    document.addEventListener('mouseenter', () => {
-        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-    });
-    
-    document.addEventListener('mouseleave', () => {
-        cursor.style.transform = 'translate(-50%, -50%) scale(0)';
-    });
-    
-    // Enhance cursor on interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, .btn, .feature-card, .stat-item');
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(2)';
-            cursor.style.background = 'radial-gradient(circle, rgba(74, 155, 60, 0.4) 0%, rgba(74, 155, 60, 0.1) 70%, transparent 100%)';
-        });
-        
-        el.addEventListener('mouseleave', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-            cursor.style.background = 'radial-gradient(circle, rgba(74, 155, 60, 0.8) 0%, rgba(74, 155, 60, 0.2) 70%, transparent 100%)';
-        });
-    });
-    
-    updateCursor();
 }
 
 // Floating Action Button for Applications

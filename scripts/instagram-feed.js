@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const accessToken = getInstagramAccessToken();
         
         const instagramFeed = new EnhancedInstagramFeed({
-            username: 'ucsdsig',
+            username: 'sigatucsd',
             containerId: 'instagram-feed',
             limit: 6,
             accessToken: accessToken,
