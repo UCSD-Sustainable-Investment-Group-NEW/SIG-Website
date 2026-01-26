@@ -4405,8 +4405,16 @@ body {
     border-top: 1px solid var(--gray-200);
 }
 
+.social-follow .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .social-follow .section-intro {
     margin-bottom: var(--spacing-6);
+    width: 100%;
+    text-align: center;
 }
 
 .social-follow .section-title {
