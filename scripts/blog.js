@@ -651,10 +651,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         searchContainer.appendChild(searchInput);
         
-        // Insert search before blog posts
+        // Insert search above the first term section (Winter 2026)
         const blogPosts = document.querySelector('.blog-posts');
-        const postsGrid = blogPosts.querySelector('.posts-grid');
-        postsGrid.parentNode.insertBefore(searchContainer, postsGrid);
+        const firstTermSection = blogPosts.querySelector('.blog-term-section');
+        firstTermSection.parentNode.insertBefore(searchContainer, firstTermSection);
     }
 
     // Add search functionality
