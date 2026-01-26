@@ -350,7 +350,7 @@ body {
 /* Hero Section */
 .hero {
     background-image: url('../assets/sig-group.jpg');
-    background-size: cover;
+    background-size: 120%;
     background-position: center;
     background-repeat: no-repeat;
     padding: 0;
@@ -1302,11 +1302,13 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+    transform: scale(1.15);
     transition: transform var(--transition-medium);
 }
 
 .photo-full-link:hover .photo-full img {
-    transform: scale(1.05);
+    transform: scale(1.2);
 }
 
 .photo-full-link:hover .photo-full::after {
@@ -1996,6 +1998,21 @@ body {
 
     .highlight-content {
         padding: var(--spacing-4);
+    }
+
+    .sponsor-highlight {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .sponsor-highlight.highlight-left,
+    .sponsor-highlight.highlight-right {
+        grid-template-columns: 1fr;
+        direction: ltr;
+    }
+
+    .sponsor-highlight .highlight-image {
+        min-height: 300px;
     }
 }
 
@@ -4667,8 +4684,57 @@ body {
 
 /* Sponsorship Page Styles */
 .current-sponsors {
-    padding: var(--spacing-12) 0;
-    background-color: var(--beige-light);
+    padding: var(--spacing-20) 0;
+    background: linear-gradient(to bottom, var(--beige-light) 0%, var(--beige-warm) 100%);
+}
+
+.sponsor-highlight {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-8);
+    align-items: center;
+    margin-bottom: var(--spacing-10);
+    background: var(--beige-warm);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(107, 93, 74, 0.15);
+    border: 2px solid var(--brown-medium);
+    transition: all var(--transition-medium);
+}
+
+.sponsor-highlight:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(74, 61, 47, 0.3);
+    border-color: var(--brown-darker);
+}
+
+.sponsor-highlight.highlight-left {
+    grid-template-columns: 1fr 1fr;
+}
+
+.sponsor-highlight.highlight-right {
+    grid-template-columns: 1fr 1fr;
+    direction: rtl;
+}
+
+.sponsor-highlight.highlight-right > * {
+    direction: ltr;
+}
+
+.sponsor-highlight .highlight-content {
+    color: var(--text-primary);
+}
+
+.sponsor-highlight .highlight-title {
+    color: var(--text-primary) !important;
+}
+
+.sponsor-highlight .highlight-description {
+    color: var(--text-secondary) !important;
+}
+
+.sponsor-highlight .highlight-meta {
+    color: var(--text-secondary) !important;
 }
 
 .sponsors-list {
