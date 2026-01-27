@@ -1614,7 +1614,8 @@ body {
 }
 
 .event-image img[src*="beach_clean"] {
-    object-position: center 10%;
+    transform: translateY(-30px);
+    object-position: center top;
 }
 
 .event-content {
