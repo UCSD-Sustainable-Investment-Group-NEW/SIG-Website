@@ -4500,25 +4500,29 @@ body {
 }
 
 .btn-instagram {
-    background: linear-gradient(135deg, #833AB4 0%, #C13584 50%, #E1306C 100%);
+    background: var(--primary-green-dark);
     color: var(--white);
+    border-color: var(--primary-green-dark);
 }
 
 .btn-instagram:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
-    background: linear-gradient(135deg, #9b4ac4 0%, #d13f94 50%, #f1407c 100%);
+    background: var(--instagram-emerald);
+    border-color: var(--instagram-emerald);
 }
 
 .btn-linkedin {
-    background: #0077B5;
+    background: var(--primary-green-dark);
     color: var(--white);
+    border-color: var(--primary-green-dark);
 }
 
 .btn-linkedin:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
-    background: #006399;
+    background: var(--instagram-emerald);
+    border-color: var(--instagram-emerald);
 }
 
 @media (max-width: 768px) {
