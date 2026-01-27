@@ -1613,6 +1613,10 @@ body {
     object-fit: cover;
 }
 
+.event-image img[src*="beach_clean"] {
+    object-position: center top;
+}
+
 .event-content {
     padding: var(--spacing-1);
     flex: 1;
